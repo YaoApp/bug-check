@@ -1,0 +1,41 @@
+{
+  "name": "::Pet Admin",
+
+  "action": {
+    "bind": { "model": "pet", "option": { "withs": { "doctor": {} } } }
+  },
+
+  "layout": {
+    "primary": "id",
+
+    "header": {
+      "preset": {}
+    },
+
+    "filter": {},
+
+    "table": {
+      "columns": [{ "name": "昵称" }],
+      "operation": {
+        "fold": false,
+        "width": 255,
+        "actions": [
+          {
+            "title": "查看",
+            "icon": "icon-eye",
+            "action": [
+              {
+                "name": "openModal",
+                "type": "Common.openModal",
+                "payload": {
+                  "width": 640,
+                  "Form": { "type": "view", "model": "pet" }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

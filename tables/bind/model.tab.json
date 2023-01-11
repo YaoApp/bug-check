@@ -1,0 +1,11 @@
+{
+  "name": "::Pet Admin Bind Model",
+  "action": {
+    "bind": { "model": "pet", "option": {} },
+    "search": {
+      "guard": "-",
+      "process": "scripts.pet.Search",
+      "default": [null, 1, 5]
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "name": "APP Menu",
+  "nodes": [],
+  "output": {
+    "setting": [
+      {
+        "icon": "icon-settings",
+        "id": 999999,
+        "name": "设置",
+        "path": "/x/Form/pet/1/edit",
+        "dot": true,
+        "children": [
+          {
+            "id": 10002,
+            "name": "消息通知",
+            "badge": 24,
+            "path": "/x/Form/pet/1/edit"
+          },
+          { "id": 10002, "name": "系统设置", "path": "/setting" }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "icon": "icon-activity",
+        "id": 1,
+        "name": "图表",
+        "parent": null,
+        "path": "/x/Chart/dashboard"
+      },
+      {
+        "icon": "icon-clipboard",
+        "id": 2,
+        "name": "表单",
+        "parent": null,
+        "path": "/x/Form/pet/1/edit",
+        "children": [
+          {
+            "icon": "icon-clipboard",
+            "name": "编辑模式",
+            "id": 2010,
+            "path": "/x/Form/pet/1/edit"
+          }
+        ]
+      },
+      {
+        "icon": "icon-clipboard",
+        "id": 2,
+        "name": "表单添加",
+        "parent": null,
+        "path": "/x/Form/pet/0/edit",
+        "children": [
+          {
+            "icon": "icon-clipboard",
+            "name": "编辑模式",
+            "id": 2010,
+            "path": "/x/Form/pet/1/edit"
+          }
+        ]
+      }
+    ]
+  }
+}

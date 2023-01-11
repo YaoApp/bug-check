@@ -1,0 +1,61 @@
+{
+  "name": "::Category Admin",
+  "action": { "bind": { "model": "category" } },
+  "layout": {
+    "list": {
+      "props": {},
+      "columns": [
+        { "name": "名称", "width": 6 },
+        { "name": "库存预警", "width": 6 },
+        { "name": "状态", "width": 6 },
+        { "name": "父类", "width": 6 }
+      ]
+    }
+  },
+  "fields": {
+    "list": {
+      "名称": {
+        "bind": "name",
+        "edit": {
+          "type": "Input",
+          "props": {
+            "$on:change": {
+              "process": "scripts.event.OnChangeList",
+              "query": { "extra": "开发者自定义" }
+            }
+          }
+        }
+      },
+      "库存预警": {
+        "bind": "stock",
+        "edit": { "type": "InputNumber", "props": {} }
+      },
+      "状态": {
+        "bind": "status",
+        "edit": {
+          "type": "Select",
+          "props": {
+            "options": [
+              { "label": "启用", "value": "启用" },
+              { "label": "停用", "value": "停用" }
+            ]
+          }
+        }
+      },
+      "父类": {
+        "bind": "parent",
+        "edit": {
+          "type": "Select",
+          "props": {
+            "xProps": {
+              "$remote": {
+                "process": "yao.component.SelectOptions",
+                "query": { "model": "category" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
