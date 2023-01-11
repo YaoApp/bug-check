@@ -1,6 +1,0 @@
-{
-  "name": "::Category",
-  "action": {
-    "bind": { "model": "category", "option": {} }
-  }
-}
