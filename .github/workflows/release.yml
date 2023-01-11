@@ -20,7 +20,6 @@ jobs:
           cp -r . ../dist
           rm -rf ../dist/.git
           rm -rf ../dist/logs
-          mkdir ../dist/db
           tar cvfz bug-check.tar.gz -C ../dist/ .
 
       - name: Push to Earth (@Beijing)
