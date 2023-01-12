@@ -20,6 +20,7 @@ jobs:
           cp -r . ../dist
           rm -rf ../dist/.git
           rm -rf ../dist/logs
+          rm -rf ../dist/db/.session
           cp online.env ../dist/.env
           tar cvfz bug-check.tar.gz -C ../dist/ .
 
