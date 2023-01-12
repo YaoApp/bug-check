@@ -1,19 +1,17 @@
 {
       "xgen": "1.0",
-      "name": "::Demo Application",
-      "short": "::Demo",
-      "description": "::Another yao application",
+      "name": "xgen dev app",
+      "short": "devapp",
+      "description":"LOL manage system by Yao.",
       "version": "0.10.2",
-      "setup": "scripts.demo.Data",
+      "setup": "scripts.init.setData",
       "adminRoot": "admin",
       "optional": {
             "hideNotification": true,
             "hideSetting": false
       },
       "menu": {
-            "process": "flows.app.menu",
-            "args": [
-                  "demo"
-            ]
+            "process": "flows.menu",
+            "args": []
       }
 }
