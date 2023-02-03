@@ -10,20 +10,14 @@
             "primary": "id",
             "actions": [
                   {
-                        "title": "添加英雄",
-                        "icon": "icon-plus",
+                        "title": "切换全屏",
+                        "icon": "icon-maximize-2",
+                        "showWhenAdd": true,
                         "action": [
                               {
-                                    "name": "OpenModal",
-                                    "type": "Common.openModal",
-                                    "payload": {
-                                          "width": "40vw",
-                                          "isRef": false,
-                                          "Form": {
-                                                "type": "edit",
-                                                "model": "hero"
-                                          }
-                                    }
+                                    "name": "Fullscreen",
+                                    "type": "Form.fullscreen",
+                                    "payload": {}
                               }
                         ]
                   },
@@ -67,7 +61,7 @@
                         ]
                   },
                   {
-                        "title": "审核",
+                        "title": "跳转",
                         "icon": "icon-arrow-up",
                         "style": "primary",
                         "showWhenAdd": true,
@@ -78,13 +72,10 @@
                                     "payload": {}
                               },
                               {
-                                    "name": "Audit",
-                                    "type": "Service.test",
+                                    "name": "HistoryPush",
+                                    "type": "Common.historyPush",
                                     "payload": {
-                                          "method": "audit",
-                                          "args": [
-                                                "[[$Submit]]"
-                                          ]
+                                          "pathname": "/x/Form/hero/[[$Submit]]/view"
                                     }
                               },
                               {
@@ -98,7 +89,7 @@
                         "title": "保存",
                         "icon": "icon-check",
                         "style": "primary",
-                        "showWhenAddAndView": true,
+                        "showWhenAdd": true,
                         "action": [
                               {
                                     "name": "Submit",
@@ -114,7 +105,45 @@
                   }
             ],
             "form": {
-                  "props": {},
+                  "props": {
+                        "onLoadSync": false,
+                        "reference": {
+                              "flatContent": {
+                                    "name": "参照",
+                                    "defaultOpen": false,
+                                    "payload": {
+                                          "width": "600px",
+                                          "Form": {
+                                                "type": "view",
+                                                "model": "role",
+                                                "id": "{{id}}"
+                                          }
+                                    }
+                              },
+                              "floatContents": [
+                                    {
+                                          "name": "参照1",
+                                          "payload": {
+                                                "Form": {
+                                                      "type": "view",
+                                                      "model": "role",
+                                                      "id": "{{id}}"
+                                                }
+                                          }
+                                    },
+                                    {
+                                          "name": "参照2",
+                                          "payload": {
+                                                "Form": {
+                                                      "type": "edit",
+                                                      "model": "role",
+                                                      "id": "{{id}}"
+                                                }
+                                          }
+                                    }
+                              ]
+                        }
+                  },
                   "sections": [
                         {
                               "columns": [
@@ -167,11 +196,11 @@
                                           "width": 12
                                     },
                                     {
-                                          "name": "描述",
+                                          "name": "列表",
                                           "width": 24
                                     },
                                     {
-                                          "name": "列表",
+                                          "name": "描述",
                                           "width": 24
                                     }
                               ]
@@ -201,14 +230,7 @@
                         "bind": "name",
                         "edit": {
                               "type": "Input",
-                              "props": {
-                                    "$on:change": {
-                                          "process": "scripts.event.OnChange",
-                                          "query": {
-                                                "extra": "开发者定义数据"
-                                          }
-                                    }
-                              }
+                              "props": {}
                         }
                   },
                   "别名": {
@@ -231,6 +253,7 @@
                               "type": "Select",
                               "props": {
                                     "mode": "multiple",
+                                    "extend": true,
                                     "xProps": {
                                           "$remote": {
                                                 "process": "yao.component.SelectOptions",
@@ -239,6 +262,12 @@
                                                       "label": "name",
                                                       "value": "type"
                                                 }
+                                          }
+                                    },
+                                    "$on:change": {
+                                          "process": "scripts.event.OnChange",
+                                          "query": {
+                                                "extra": "开发者定义数据"
                                           }
                                     }
                               }
@@ -250,6 +279,7 @@
                               "type": "Select",
                               "props": {
                                     "mode": "multiple",
+                                    "showSearch": true,
                                     "options": [
                                           {
                                                 "label": "上单",
@@ -320,10 +350,10 @@
                   "描述": {
                         "bind": "desc",
                         "edit": {
-                              "type": "RichText",
+                              "type": "CodeEditor",
                               "props": {
-                                    "UploadByFileApi": "/api/UploadByFileApi",
-                                    "UploadByUrlApi": "/api/UploadByUrlApi"
+                                    "language": "javascript",
+                                    "height": 200
                               }
                         }
                   },

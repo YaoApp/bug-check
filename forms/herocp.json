@@ -4,7 +4,8 @@
     "bind": {
       "model": "hero",
       "option": {}
-    }
+    },
+    "after:find": "scripts.event.AfterFind"
   },
   "layout": {
     "primary": "id",
@@ -149,26 +150,6 @@
               "width": 12
             },
 
-            {
-              "name": "魔法伤害",
-              "width": 12
-            },
-            {
-              "name": "操作难度",
-              "width": 12
-            },
-            {
-              "name": "价格（金币）",
-              "width": 12
-            },
-            {
-              "name": "价格（点券）",
-              "width": 12
-            },
-            {
-              "name": "描述",
-              "width": 24
-            },
             {
               "name": "列表",
               "width": 24
@@ -359,7 +340,7 @@
           "type": "List",
           "props": {
             "name": "test",
-            "hasChildren": true
+            "hasChildren": false
           }
         }
       }

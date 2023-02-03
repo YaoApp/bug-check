@@ -1,3 +1,3 @@
-#!/bin/bash
 yao migrate --reset
-yao run scripts.demo.Data
+yao run scripts.init.setData
+yao start

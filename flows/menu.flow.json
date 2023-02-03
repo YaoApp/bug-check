@@ -37,7 +37,7 @@
                                           {
                                                 "id": 10003,
                                                 "name": "角色管理B",
-                                                "path": "/x/Table/role.b",
+                                                "path": "/x/Table/role",
                                                 "badge": 600
                                           }
                                     ]
@@ -71,7 +71,7 @@
                         "icon": "icon-airplay",
                         "id": 3,
                         "name": "airplay",
-                        "path": "/x/Form/change/0/edit",
+                        "path": "/x/Form/herocp/1/edit",
                         "dot": true
                   },
                   {

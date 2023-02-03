@@ -1,4 +1,9 @@
 logs/application.log
 .DS_Store
 data
-db/.session
+db
+
+# custom components
+
+node_modules
+public/components/*

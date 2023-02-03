@@ -58,7 +58,8 @@
                                           "name": "OpenModal",
                                           "type": "Common.openModal",
                                           "payload": {
-                                                "width": 640,
+                                                "width": 900,
+                                                "byDrawer": {},
                                                 "Form": {
                                                       "type": "edit",
                                                       "model": "hero"
@@ -72,13 +73,11 @@
             "table": {
                   "columns": [
                         {
+                              "name": "Block",
+                              "width": 160
+                        },
+                        {
                               "name": "头像"
-                        },
-                        {
-                              "name": "名称"
-                        },
-                        {
-                              "name": "别名"
                         },
                         {
                               "name": "昵称"
@@ -121,6 +120,13 @@
                               {
                                     "title": "查看",
                                     "icon": "icon-eye",
+                                    "disabled": {
+                                          "bind": "{{id}}",
+                                          "value": [
+                                                "1",
+                                                "2"
+                                          ]
+                                    },
                                     "action": [
                                           {
                                                 "name": "OpenModal",
@@ -143,7 +149,7 @@
                                                 "name": "OpenModal",
                                                 "type": "Common.openModal",
                                                 "payload": {
-                                                      "width": "40vw",
+                                                      "width": "50vw",
                                                       "Form": {
                                                             "type": "edit",
                                                             "model": "hero"
@@ -169,7 +175,8 @@
                                     }
                               }
                         ]
-                  }
+                  },
+                  "props": {}
             }
       },
       "fields": {
@@ -238,6 +245,62 @@
                   }
             },
             "table": {
+                  "Block": {
+                        "bind": "avatar",
+                        "view": {
+                              "type": "Block",
+                              "props": {
+                                    "components": {
+                                          "avatar": {
+                                                "bind": "avatar",
+                                                "view": {
+                                                      "type": "Image",
+                                                      "compute": "Download",
+                                                      "props": {
+                                                            "style": {
+                                                                  "width": 36,
+                                                                  "height": 36,
+                                                                  "borderRadius": "50%"
+                                                            }
+                                                      }
+                                                },
+                                                "edit": {
+                                                      "type": "Upload",
+                                                      "compute": "Upload",
+                                                      "props": {
+                                                            "filetype": "image",
+                                                            "$api": {
+                                                                  "process": "fs.system.Upload"
+                                                            }
+                                                      }
+                                                }
+                                          },
+                                          "name": {
+                                                "bind": "name",
+                                                "view": {
+                                                      "type": "Text",
+                                                      "props": {}
+                                                },
+                                                "edit": {
+                                                      "type": "Input",
+                                                      "props": {}
+                                                }
+                                          },
+                                          "desc": {
+                                                "bind": "alias",
+                                                "view": {
+                                                      "type": "Text",
+                                                      "props": {}
+                                                },
+                                                "edit": {
+                                                      "type": "Input",
+                                                      "props": {}
+                                                }
+                                          }
+                                    }
+                              }
+                        }
+                  },
                   "头像": {
                         "bind": "avatar",
                         "view": {
@@ -245,6 +308,8 @@
                               "compute": "Download",
                               "props": {
                                     "style": {
+                                          "width": 36,
+                                          "height": 36,
                                           "borderRadius": "50%"
                                     }
                               }
@@ -258,28 +323,6 @@
                                           "process": "fs.system.Upload"
                                     }
                               }
-                        }
-                  },
-                  "名称": {
-                        "bind": "name",
-                        "view": {
-                              "type": "public/Test",
-                              "props": {}
-                        },
-                        "edit": {
-                              "type": "Input",
-                              "props": {}
-                        }
-                  },
-                  "别名": {
-                        "bind": "alias",
-                        "view": {
-                              "type": "Text",
-                              "props": {}
-                        },
-                        "edit": {
-                              "type": "Input",
-                              "props": {}
                         }
                   },
                   "昵称": {
@@ -336,7 +379,8 @@
                                           {
                                                 "label": "上单",
                                                 "value": "上单",
-                                                "color": "red"
+                                                "color": "red",
+                                                "textColor": "black"
                                           },
                                           {
                                                 "label": "中单",
