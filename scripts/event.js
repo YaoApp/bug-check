@@ -40,5 +40,20 @@ function AfterFind(payload) {
     },
   ];
   payload.json_1 = arr;
+
+  payload.json_2 = [
+    {
+      id: 1,
+      price: 100,
+      number: 200,
+      type: "a",
+    },
+    {
+      id: 2,
+      price: 300,
+      number: 400,
+      type: "b",
+    },
+  ];
   return payload;
 }

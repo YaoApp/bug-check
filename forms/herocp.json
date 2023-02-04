@@ -149,9 +149,12 @@
               "name": "位置",
               "width": 12
             },
-
             {
-              "name": "列表",
+              "name": "列表有问题的",
+              "width": 24
+            },
+            {
+              "name": "列表没问题的",
               "width": 24
             }
           ]
@@ -334,8 +337,18 @@
           }
         }
       },
-      "列表": {
+      "列表没问题的": {
         "bind": "json_1",
+        "edit": {
+          "type": "List",
+          "props": {
+            "name": "test",
+            "hasChildren": false
+          }
+        }
+      },
+      "列表有问题的": {
+        "bind": "json_2",
         "edit": {
           "type": "List",
           "props": {
