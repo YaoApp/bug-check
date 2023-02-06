@@ -218,13 +218,7 @@
                 "label": "寒冰别名",
                 "value": "寒冰别名"
               }
-            ],
-            "$on:change": {
-              "process": "scripts.change.OnChange2",
-              "query": {
-                "extra": "开发者定义数据"
-              }
-            }
+            ]
           }
         }
       },
