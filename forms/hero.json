@@ -106,7 +106,7 @@
             ],
             "form": {
                   "props": {
-                        "onLoadSync": false,
+                        "onLoadSync": true,
                         "reference": {
                               "flatContent": {
                                     "name": "参照",
