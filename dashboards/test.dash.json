@@ -28,8 +28,7 @@
         "view": {
           "type": "base/Table",
           "props": {
-            "model": "hero",
-            "onChangeEvent": true
+            "model": "hero"
           }
         }
       },
@@ -37,8 +36,7 @@
         "view": {
           "type": "base/Table",
           "props": {
-            "model": "role",
-            "onChangeEvent": true
+            "model": "role"
           }
         }
       },
