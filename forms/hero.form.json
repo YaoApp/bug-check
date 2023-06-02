@@ -106,7 +106,7 @@
             ],
             "form": {
                   "props": {
-                        "onLoadSync": true,
+                        "onLoadSync": false,
                         "reference": {
                               "flatContent": {
                                     "name": "参照",
@@ -149,6 +149,10 @@
                         {
                               "title": "Section 1",
                               "columns": [
+                                    {
+                                          "name": "审批流",
+                                          "width": 24
+                                    },
                                     {
                                           "name": "头像",
                                           "width": 24
@@ -206,19 +210,6 @@
                                           "width": 24
                                     }
                               ]
-                        },
-                        {
-                              "title": "Section 2",
-                              "columns": [
-                                    {
-                                          "name": "名称",
-                                          "width": 24
-                                    },
-                                    {
-                                          "name": "别名",
-                                          "width": 24
-                                    }
-                              ]
                         }
                   ]
             },
@@ -228,6 +219,15 @@
       },
       "fields": {
             "form": {
+                  "审批流": {
+                        "bind": "json_2",
+                        "edit": {
+                              "type": "__Test__",
+                              "props": {
+                                    "usersApi": "/api/select/options"
+                              }
+                        }
+                  },
                   "头像": {
                         "bind": "avatar",
                         "edit": {
@@ -365,21 +365,15 @@
                   "描述": {
                         "bind": "desc",
                         "edit": {
-                              "type": "CodeEditor",
-                              "props": {
-                                    "language": "javascript",
-                                    "height": 200
-                              }
+                              "type": "RichText",
+                              "props": {}
                         }
                   },
                   "列表": {
                         "bind": "json_1",
                         "edit": {
-                              "type": "List",
-                              "props": {
-                                    "name": "test",
-                                    "hasChildren": true
-                              }
+                              "type": "Gantt",
+                              "props": {}
                         }
                   }
             }

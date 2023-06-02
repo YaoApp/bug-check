@@ -18,17 +18,38 @@
         {
           "name": "角色列表",
           "width": 24
+        },
+        {
+          "name": "图表展示1",
+          "width": 12
+        },
+        {
+          "name": "图表展示2",
+          "width": 12
+        },
+        {
+          "name": "收入",
+          "width": 12
         }
       ]
     }
   },
   "fields": {
     "dashboard": {
+      "收入": {
+        "bind": "income",
+        "link": "/x/Table/hero",
+        "view": {
+          "type": "chart/Number",
+          "props": { "unit": "元" }
+        }
+      },
       "英雄列表": {
         "view": {
           "type": "base/Table",
           "props": {
-            "model": "hero"
+            "model": "hero",
+            "onChangeEvent": false
           }
         }
       },
@@ -36,7 +57,8 @@
         "view": {
           "type": "base/Table",
           "props": {
-            "model": "role"
+            "model": "role",
+            "onChangeEvent": false
           }
         }
       },
