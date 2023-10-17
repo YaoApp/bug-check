@@ -1,0 +1,24 @@
+{
+  "name": "类目接口",
+  "version": "1.0.0",
+  "description": "类目接口",
+  "group": "utils",
+  "guard": "-",
+  "paths": [
+    {
+      "guard": "-",
+      "path": "/export_name/:name/:table_name",
+      "method": "GET",
+      "process": "flows.utils.export",
+      "in": ["$param.name", ":query-param", "$param.table_name"],
+
+      "out": {
+        "status": 200,
+        "type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "headers": {
+          "Content-Disposition": "{{$param.table_name}}"
+        }
+      }
+    }
+  ]
+}
