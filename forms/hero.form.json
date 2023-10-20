@@ -4,7 +4,8 @@
             "bind": {
                   "model": "hero",
                   "option": {}
-            }
+            },
+            "after:find": "scripts.hero.AfterFind"
       },
       "layout": {
             "primary": "id",
@@ -149,10 +150,7 @@
                         {
                               "title": "Section 1",
                               "columns": [
-                                    {
-                                          "name": "审批流",
-                                          "width": 24
-                                    },
+                                   
                                     {
                                           "name": "头像",
                                           "width": 24
@@ -214,7 +212,9 @@
                   ]
             },
             "config": {
-                  "showAnchor": false
+                  "showAnchor": false,
+                  "viewTitle": "查看英雄",
+                  "editTitle": "编辑英雄"
             }
       },
       "fields": {
@@ -224,7 +224,24 @@
                         "edit": {
                               "type": "__Test__",
                               "props": {
-                                    "usersApi": "/api/select/options"
+                                    "usersApi": "/api/select/options",
+                                    "launcher": {
+                                          "title": "Faqiren",
+                                          "icon": "icon-activity"
+                                    },
+                                    "handler": {
+                                          "title": "Shenpiren",
+                                          "icon": "icon-airplay"
+                                    }
+                              }
+                        }
+                  },
+                  "审批流1": {
+                        "bind": "json_1",
+                        "edit": {
+                              "type": "__Test__",
+                              "props": {
+                                    "formsApi": "/api/select/options"
                               }
                         }
                   },
@@ -235,6 +252,11 @@
                               "compute": "Upload",
                               "props": {
                                     "filetype": "image",
+                                    "imageSize": {
+                                          "width": "300px",
+                                          "height": "180px",
+                                          "objectFit": "cover"
+                                    },
                                     "$api": {
                                           "process": "fs.system.Upload"
                                     }
@@ -293,28 +315,27 @@
                         "edit": {
                               "type": "Select",
                               "props": {
-                                    "mode": "multiple",
                                     "showSearch": true,
                                     "options": [
                                           {
                                                 "label": "上单",
-                                                "value": "上单"
+                                                "value": 0
                                           },
                                           {
                                                 "label": "中单",
-                                                "value": "中单"
+                                                "value": 1
                                           },
                                           {
                                                 "label": "打野",
-                                                "value": "打野"
+                                                "value": 2
                                           },
                                           {
                                                 "label": "下路",
-                                                "value": "下路"
+                                                "value": 3
                                           },
                                           {
                                                 "label": "辅助",
-                                                "value": "辅助"
+                                                "value": 4
                                           }
                                     ]
                               }
@@ -366,13 +387,6 @@
                         "bind": "desc",
                         "edit": {
                               "type": "RichText",
-                              "props": {}
-                        }
-                  },
-                  "列表": {
-                        "bind": "json_1",
-                        "edit": {
-                              "type": "Gantt",
                               "props": {}
                         }
                   }

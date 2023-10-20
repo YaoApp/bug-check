@@ -92,8 +92,3 @@ function Data(payload, context) {
   // });
   return true;
 }
-
-function Hero() {
-  console.log("进入hero的setting");
-  return Process("yao.table.Setting", "hero_copy");
-}
