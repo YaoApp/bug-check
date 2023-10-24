@@ -173,7 +173,15 @@
         "edit": {
           "type": "public/ApprovalFlowEditor",
           "props": {
-            "usersApi": "/api/select/node"
+            "usersApi": "/api/select/node",
+            "launcher": {
+              "title": "流程节点",
+              "icon": "icon-git-branch"
+            },
+            "handler": {
+              "title": "流程节点",
+              "icon": "icon-git-branch"
+            }
           }
         }
       }
