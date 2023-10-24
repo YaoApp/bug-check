@@ -1,0 +1,88 @@
+{
+  "name": "审批流程表",
+  "table": {
+    "name": "approval_flow",
+    "comment": "审批流程表",
+    "engine": "InnoDB"
+  },
+  "columns": [
+    {
+      "label": "ID",
+      "name": "id",
+      "type": "ID",
+      "comment": "ID",
+      "primary": true
+    },
+    {
+      "name": "flow_name",
+      "label": "名称",
+      "type": "string",
+      "comment": "名称",
+      "nullable": true
+    },
+    {
+      "name": "name",
+      "label": "审批流程名称",
+      "type": "string",
+      "comment": "审批流程名称",
+      "nullable": true
+    },
+    {
+      "label": "用户id",
+      "name": "user",
+      "type": "integer",
+      "comment": "审批的用户id",
+      "nullable": true
+    },
+    {
+      "label": "是否为当前用户",
+      "name": "current",
+      "type": "boolean",
+      "comment": "是否为当前用户",
+      "nullable": true
+    },
+    {
+      "label": "绑定的表单",
+      "name": "form_id",
+      "type": "integer",
+      "comment": "绑定的表单",
+      "nullable": true
+    },
+    {
+      "label": "排序",
+      "name": "rank",
+      "type": "integer",
+      "comment": "越大越靠前",
+      "nullable": true
+    },
+    {
+      "label": "审批流",
+      "name": "content",
+      "type": "json",
+      "comment": "审批流",
+      "nullable": true
+    }
+  ],
+  "relations": {
+    "user": {
+      "type": "hasOne",
+      "model": "user.user",
+      "key": "id",
+      "foreign": "user",
+      "query": { "select": ["id", "name"] }
+    },
+    "form": {
+      "type": "hasOne",
+      "model": "work.form",
+      "key": "id",
+      "foreign": "form_id",
+      "query": { "select": ["id", "name"] }
+    }
+  },
+  "values": [],
+  "indexes": [],
+  "option": {
+    "timestamps": true,
+    "soft_deletes": true
+  }
+}

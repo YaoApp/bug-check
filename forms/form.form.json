@@ -1,0 +1,183 @@
+{
+  "action": {
+    "bind": {
+      "model": "work.form",
+      "option": {
+        "withs": {}
+      }
+    },
+    "save": {
+      "process": "scripts.form.Save"
+    },
+    "after:find": "scripts.form.AfterFind"
+  },
+  "layout": {
+    "actions": [
+      {
+        "title": "保存",
+        "icon": "icon-check",
+
+        "showWhenAdd": true,
+
+        "style": "primary",
+        "action": [
+          {
+            "name": "Submit",
+            "type": "Form.submit",
+            "payload": {}
+          },
+          {
+            "name": "Back",
+            "type": "Common.closeModal",
+            "payload": {}
+          }
+        ]
+      },
+      {
+        "title": "返回",
+        "divideLine": true,
+        "showWhenAdd": true,
+        "showWhenView": true,
+        "icon": "icon-arrow-left",
+        "action": [
+          {
+            "name": "closeModal",
+            "type": "Common.closeModal",
+            "payload": {}
+          }
+        ]
+      }
+    ],
+    "form": {
+      "sections": [
+        {
+          "columns": [
+            {
+              "width": 12,
+              "name": "名称"
+            },
+
+            {
+              "width": 12,
+              "name": "编号"
+            },
+            {
+              "width": 24,
+              "name": "表单附件"
+            },
+
+            {
+              "width": 24,
+              "name": "表单内容"
+            },
+            {
+              "width": 24,
+              "name": "工作流"
+            }
+          ]
+        }
+      ],
+      "props": {}
+    },
+    "config": { "showAnchor": false },
+
+    "primary": "id",
+    "operation": {
+      "preset": {
+        "save": {
+          "back": true
+        },
+        "back": {}
+      }
+    }
+  },
+  "fields": {
+    "form": {
+      "名称": {
+        "view": {
+          "type": "Text",
+          "props": {}
+        },
+        "edit": {
+          "props": {
+            "itemProps": {
+              "rules": [{ "required": true }]
+            }
+          },
+          "type": "Input"
+        },
+
+        "bind": "name"
+      },
+      "表单附件": {
+        "bind": "file_list",
+        "view": {
+          "type": "Text",
+          "props": {}
+        },
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "$api": { "process": "fs.system.Upload" },
+            "filetype": "file"
+          }
+        }
+      },
+      "编号": {
+        "view": {
+          "type": "Text",
+          "props": {}
+        },
+        "edit": {
+          "props": {},
+          "type": "Input"
+        },
+
+        "bind": "sn"
+      },
+      "类型": {
+        "view": {
+          "type": "Text",
+          "props": {}
+        },
+        "edit": {
+          "props": {
+            "itemProps": {
+              "rules": [{ "required": true }]
+            },
+            "options": [
+              {
+                "label": "项目详情表单",
+                "value": 1
+              },
+              {
+                "label": "项目节点表单",
+                "value": 0
+              }
+            ]
+          },
+          "type": "Select"
+        },
+
+        "bind": "type"
+      },
+      "表单内容": {
+        "bind": "content",
+        "edit": {
+          "type": "public/TableFormEditor",
+          "props": {}
+        }
+      },
+      "工作流": {
+        "bind": "approval_content",
+        "edit": {
+          "type": "public/ApprovalFlowEditor",
+          "props": {
+            "usersApi": "/api/select/node"
+          }
+        }
+      }
+    }
+  },
+  "name": "表单设置"
+}

@@ -1,0 +1,81 @@
+{
+  "name": "模板表单",
+  "table": {
+    "name": "form",
+    "comment": "模板表单",
+    "engine": "InnoDB"
+  },
+  "columns": [
+    {
+      "label": "ID",
+      "name": "id",
+      "type": "ID",
+      "comment": "ID",
+      "primary": true
+    },
+    {
+      "label": "表单编号",
+      "name": "sn",
+      "type": "string",
+      "comment": "表单编号",
+      "nullable": true
+    },
+    {
+      "label": "模板名称",
+      "name": "name",
+      "type": "string",
+      "comment": "模板名称",
+      "nullable": true
+    },
+    {
+      "label": "模板类型",
+      "name": "type",
+      "type": "integer",
+      "default": 0,
+      "comment": "模板类型:1项目详情表单,0项目节点表单",
+      "nullable": true
+    },
+    {
+      "label": "模板内容json",
+      "name": "content",
+      "type": "json",
+      "comment": "模板内容json",
+      "nullable": true
+    },
+    {
+      "label": "对应的表单名称",
+      "name": "table_name",
+      "type": "string",
+      "comment": "对应的表单名称",
+      "nullable": true
+    },
+    {
+      "label": "表单路径",
+      "name": "path",
+      "type": "string",
+      "comment": "表单路径",
+      "nullable": true
+    },
+    {
+      "label": "对应的数据库表",
+      "name": "sql_tabel",
+      "type": "string",
+      "nullable": true,
+      "comment": "对应的数据库表"
+    },
+    {
+      "label": "表单附件",
+      "name": "file_list",
+      "type": "json",
+      "nullable": true,
+      "comment": "表单附件"
+    }
+  ],
+  "relations": {},
+  "values": [],
+  "indexes": [],
+  "option": {
+    "timestamps": true,
+    "soft_deletes": true
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "name": "表单设置",
+  "action": {
+    "bind": {
+      "model": "work.form",
+      "option": {
+        "withs": {}
+      }
+    },
+    "search": {
+      "default": [
+        {
+          "orders": [{ "column": "id", "option": "desc" }]
+        },
+        null,
+        10
+      ]
+    }
+  },
+  "layout": {
+    "primary": "id",
+    "header": {
+      "preset": {}
+    },
+    "filter": {
+      "columns": [
+        {
+          "name": "表单名称",
+          "width": 4
+        }
+      ],
+      "actions": [
+        {
+          "icon": "icon-plus",
+          "width": 3,
+          "action": [
+            {
+              "name": "HistoryPush",
+              "type": "Common.historyPush",
+              "payload": {
+                "pathname": "/x/Form/form/0/edit"
+              }
+            }
+          ],
+
+          "title": "添加"
+        }
+      ]
+    },
+    "table": {
+      "columns": [
+        {
+          "width": 200,
+          "name": "表单名称"
+        },
+
+        {
+          "width": 200,
+          "name": "创建时间"
+        }
+      ],
+      "operation": {
+        "fold": false,
+        "actions": [
+          {
+            "title": "编辑",
+            "icon": "icon-edit-2",
+            "action": [
+              {
+                "name": "HistoryPush",
+                "type": "Common.historyPush",
+                "payload": {
+                  "pathname": "/x/Form/form/{{id}}/edit"
+                }
+              }
+            ]
+          },
+
+          {
+            "icon": "icon-trash-2",
+            "width": 3,
+            "action": [
+              {
+                "name": "Confirm",
+                "type": "Common.confirm",
+                "payload": {
+                  "title": "确认删除?",
+                  "content": "删除后数据无法恢复?"
+                }
+              },
+              { "name": "Delete", "type": "Table.delete", "payload": {} }
+            ],
+            "style": "danger",
+            "title": "删除"
+          }
+        ]
+      }
+    }
+  },
+  "fields": {
+    "filter": {
+      "表单名称": {
+        "bind": "where.name.match",
+        "edit": {
+          "type": "Input",
+          "compute": "Trim",
+          "props": {
+            "placeholder": "表单名称"
+          }
+        }
+      }
+    },
+    "table": {
+      "表单名称": {
+        "view": {
+          "type": "Text",
+          "props": {}
+        },
+        "edit": {
+          "props": {},
+          "type": "Input"
+        },
+
+        "bind": "name"
+      },
+      "类型": {
+        "view": {
+          "type": "Text",
+          "props": {},
+          "compute": {
+            "process": "scripts.compute.FormType",
+            "args": ["$C(row.type)"]
+          }
+        },
+
+        "bind": "type"
+      },
+      "创建时间": {
+        "bind": "created_at",
+        "view": {
+          "type": "Text",
+          "props": { "format": "YYYY-MM-DD" }
+        }
+      }
+    }
+  }
+}
